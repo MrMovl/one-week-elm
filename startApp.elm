@@ -10,9 +10,12 @@ main =
 model = 0
 
 
+(=>) = (,)
+
+
 view address model =
   div []
-    [ button [ onClick address Decrement ] [ text "-" ]
+    [ button [ onClick address Decrement, style [ "padding" => "5px", "color" => "red" ] ] [ text "-" ]
     , div [ onClick address Reset ] [ text (toString model) ]
     , button [ onClick address Increment ] [ text "+" ]
     ]
