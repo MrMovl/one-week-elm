@@ -1,4 +1,5 @@
 import Html exposing (div, button, text)
+import Html.Attributes exposing (style)
 import Html.Events exposing (onClick)
 import StartApp.Simple as StartApp
 
@@ -12,11 +13,12 @@ model = 0
 
 (=>) = (,)
 
+thisStyle = style [ "padding" => "5px", "backgroundColor" => "red" ]
 
 view address model =
   div []
-    [ button [ onClick address Decrement, style [ "padding" => "5px", "color" => "red" ] ] [ text "-" ]
-    , div [ onClick address Reset ] [ text (toString model) ]
+    [ button [ onClick address Decrement ] [ text "-" ]
+    , div [ onClick address Reset, thisStyle ] [ text (toString model) ]
     , button [ onClick address Increment ] [ text "+" ]
     ]
 
